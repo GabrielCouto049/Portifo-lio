@@ -1,0 +1,56 @@
+---
+import { CodeXml, Download, Menu, Moon } from "@lucide/astro";
+---
+
+<header class="flex-center justify-between p-6 md:px-18 md:py-6">
+  <a
+    href="#hero"
+    aria-label="Voltar para o início"
+    class="flex items-center gap-2 font-poppins"
+  >
+    <CodeXml aria-hidden="true" color="#3b82f6" size="24" stroke-width="2.25" />
+
+    <span class="text-2xl font-semibold"> GabrielCouto </span>
+  </a>
+
+  <!-- desktop navbar -->
+  <nav aria-label="Navegação principal" class="hidden lg:block">
+    <ul class="flex items-center gap-12">
+      <li><a class="nav-link" href="#hero">Home</a></li>
+      <li><a class="nav-link" href="#about">Sobre</a></li>
+
+      <li class="hidden xl:block">
+        <a class="nav-link" href="#skills">Habilidades</a>
+      </li>
+
+      <li><a class="nav-link" href="#projects">Projetos</a></li>
+      <li><a class="nav-link" href="#contact">Contato</a></li>
+    </ul>
+  </nav>
+
+  <div class="flex-center gap-6">
+    <a href="/curriculo.pdf" download class="hidden sm:flex sm:items-center primary-button ">
+      Baixar currículo
+
+      <Download aria-hidden="true" size="16" stroke-width="2.5" />
+    </a>
+
+    <button
+      type="button"
+      aria-label="Alternar tema"
+      class="icon-button hidden lg:flex items-center justify-center"
+    >
+      <Moon aria-hidden="true" size="16" color="#64748b" />
+    </button>
+
+    <button
+      type="button"
+      aria-label="Abrir menu"
+      aria-controls="mobile-menu"
+      aria-expanded="false"
+      class="icon-button flex items-center justify-center lg:hidden"
+    >
+      <Menu aria-hidden="true" />
+    </button>
+  </div>
+</header>

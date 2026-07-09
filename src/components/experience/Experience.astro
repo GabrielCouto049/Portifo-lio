@@ -1,0 +1,49 @@
+---
+import { GraduationCap, BriefcaseBusiness } from "@lucide/astro";
+import ExperienceItem from "./ExperienceItem.astro";
+import { graduations, jobExperiences } from "../../data/experience";
+---
+
+<section id="experience" class="w-full px-8 md:px-16">
+  <h2 class="section-title">Experiência</h2>
+
+  <div class="grid gap-10 lg:grid-cols-2">
+    <!-- Educação -->
+    <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+      <h3
+        class="mb-8 flex items-center gap-3 font-poppins text-xl font-semibold text-blue-500"
+      >
+        <GraduationCap size="27" />
+        Educação
+      </h3>
+
+      <ul class="relative flex flex-col gap-8 pl-10">
+        <!-- Linha da timeline -->
+        <span
+          class="absolute left-2.5 top-2 h-[calc(100%-16px)] w-0.5 bg-slate-200"
+        ></span>
+
+        {graduations.map((graduation) => <ExperienceItem {...graduation} />)}
+      </ul>
+    </article>
+
+    <!-- Experiência -->
+    <article class="rounded-2xl border border-slate-200 p-8 shadow-sm">
+      <h3
+        class="mb-8 flex items-center gap-3 font-poppins text-xl font-semibold text-blue-500"
+      >
+        <BriefcaseBusiness size="24" />
+        Experiências Profissionais
+      </h3>
+
+      <ul class="relative flex flex-col gap-8 pl-10">
+        <!-- Linha da timeline -->
+        <span
+          class="absolute left-2.5 top-2 h-[calc(100%-16px)] w-0.5 bg-slate-200"
+        ></span>
+
+        {jobExperiences.map((experience) => <ExperienceItem {...experience} />)}
+      </ul>
+    </article>
+  </div>
+</section>

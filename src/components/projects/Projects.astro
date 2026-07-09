@@ -1,0 +1,13 @@
+---
+import { MoveRight } from "@lucide/astro";
+import { projects } from "../../data/projects";
+import ProjectCard from "./ProjectCard.astro";
+---
+
+<section class="p-8 md:px-16 w-full">
+  <h2 class="section-title">Meus Projetos</h2>
+  <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-2">
+    {projects.slice(-4).map((project) => <ProjectCard {...project} />)}
+  </div>
+  <button class="secondary-button flex-center mx-auto mt-10">Ver todos os projetos <MoveRight /></button>
+</section>

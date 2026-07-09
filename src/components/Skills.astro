@@ -1,0 +1,153 @@
+---
+
+import { Image } from "astro:assets";
+
+import {
+  frontEndSkills,
+  backEndSkills,
+  toolsSkills,
+  softSkills,
+} from "../data/skills";
+
+import { Server, MonitorSmartphone, Wrench, Users} from "@lucide/astro"
+---
+
+<section id="skills" class="w-full px-8 md:px-16">
+  <h2 class="section-title">Habilidades</h2>
+
+  <div class="grid gap-10 lg:grid-cols-2">
+
+    <!-- Front-end -->
+    <article>
+      <div class="flex-center gap-2 mb-8">
+        <MonitorSmartphone />
+        <h3 class="font-poppins text-xl font-semibold text-blue-500">
+          Front-end
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3">
+        {frontEndSkills.map((skill) => (
+          <div
+            class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg" 
+          >
+            <Image
+              src={skill.iconSrc}
+              alt={skill.title}
+              loading="lazy"
+              class="mb-4 size-12 transition-transform duration-300 group-hover:scale-110"
+            />
+
+            <span class="text-center text-sm font-medium text-slate-600">
+              {skill.title}
+            </span>
+          </div>
+        ))}
+      </div>
+    </article>
+
+    <!-- Back-end -->
+    <article>
+      <div class="flex-center gap-2 mb-8">
+        <Server />
+        <h3 class="font-poppins text-xl font-semibold text-blue-500">
+          Back-end
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-2 gap-5 sm:grid-cols-3">
+        {backEndSkills.map((skill) => (
+          <div
+            class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg"
+          >
+            <Image
+              src={skill.iconSrc}
+              alt={skill.title}
+              loading="lazy"
+              class="mb-4 size-12 transition-transform duration-300 group-hover:scale-110"
+            />
+
+            <span class="text-center text-sm font-medium text-slate-600">
+              {skill.title}
+            </span>
+          </div>
+        ))}
+      </div>
+    </article>
+
+    <!-- Ferramentas -->
+    <article class="lg:col-span-2">
+      <div class="flex-center gap-2 mb-8">
+        <Wrench />
+        <h3 class="font-poppins text-xl font-semibold text-blue-500">
+          Ferramentas
+        </h3>
+      </div>
+
+      <div class="grid grid-cols-3 gap-5 md:grid-cols-4 lg:grid-cols-6">
+        {toolsSkills.map((skill) => (
+          <div
+            class="group flex flex-col items-center rounded-xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg"
+          >
+            <Image
+              src={skill.iconSrc}
+              alt={skill.title}
+              loading="lazy"
+              class="mb-4 size-12 transition-transform duration-300 group-hover:scale-110"
+            />
+
+            <span class="text-center text-sm font-medium text-slate-600">
+              {skill.title}
+            </span>
+          </div>
+        ))}
+      </div>
+    </article>
+
+    <!-- Soft Skills -->
+    <article class="lg:col-span-2 min-w-0">
+      <div class="flex-center gap-2 mb-8">
+        <Users />
+        <h3 class="font-poppins text-xl font-semibold text-blue-500">
+          Soft Skills
+        </h3>
+      </div>
+    
+      <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-4">
+        {softSkills.map((skill) => (
+          <div
+            class="group w-full shrink-0 snap-center rounded-2xl border bg-linear-to-br from-white to-slate-50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-xl border-slate-200"
+          >
+            <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50">
+              <Image
+                src={skill.iconSrc}
+                alt={skill.title}
+                loading="lazy"
+                class="size-8 transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+    
+            <h4 class="mb-3 font-poppins text-lg font-semibold text-slate-800">
+              {skill.title}
+            </h4>
+    
+            <p class="text-sm leading-6 text-slate-600">
+              {skill.description}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div class="mt-6 flex justify-center gap-2 md:hidden">
+        {softSkills.map((_, index) => (
+          <span
+            class:list={[
+              "h-2 w-2 rounded-full",
+              index === 0 ? "bg-blue-500" : "bg-slate-300",
+            ]}
+          />
+        ))}
+      </div>
+    </article>
+
+  </div>
+</section>

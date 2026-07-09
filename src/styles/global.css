@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&family=Poppins:wght@100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+.flex-center {
+    @apply flex items-center;
+}
+
+.nav-link {
+    @apply relative inline-block text-sm tracking-wide font-poppins
+           font-semibold text-slate-600
+           transition-colors duration-300
+           hover:text-blue-500
+           after:absolute
+           after:left-0
+           after:-bottom-1
+           after:h-0.5
+           after:w-full
+           after:origin-left
+           after:scale-x-0
+           after:rounded-full
+           after:bg-linear-to-r
+           after:from-blue-400
+           after:to-blue-600
+           after:transition-transform
+           after:duration-300
+           hover:after:scale-x-100;
+}
+
+.primary-button {
+    @apply gap-3 px-4 h-11 md:px-6 text-sm tracking-wide font-poppins
+           rounded-lg
+           bg-linear-to-b from-blue-500 to-blue-600
+           text-blue-50 font-semibold shadow-sm;
+}
+
+.secondary-button {
+    @apply gap-3 px-4 h-11 md:px-6 text-sm tracking-wide font-poppins
+           rounded-lg border-2 border-blue-700 text-blue-700 font-semibold
+}
+
+.icon-button {
+    @apply size-11 rounded-lg border border-slate-500;
+}
+
+.section-title {
+    @apply relative text-2xl font-poppins font-semibold text-center mb-12;
+}
+
+.section-title::after {
+    content: "";
+    @apply block w-10 h-1 bg-blue-500 mx-auto mt-1 rounded-full;
+}
+
+.technology-label {
+  @apply rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-600;
+}
