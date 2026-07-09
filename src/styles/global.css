@@ -47,6 +47,10 @@
     @apply size-11 rounded-lg border border-slate-500;
 }
 
+.section {
+    @apply w-full p-8 md:p-16
+}
+
 .section-title {
     @apply relative text-2xl font-poppins font-semibold text-center mb-12;
 }
@@ -58,4 +62,13 @@
 
 .technology-label {
   @apply rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-600;
+}
+
+.typed-cursor {
+    @apply block h-6 w-1 bg-blue-500 text-blue-500 
+}
+
+.skill-card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
