@@ -4,10 +4,21 @@ import { projects } from "../../data/projects";
 import ProjectCard from "./ProjectCard.astro";
 ---
 
-<section class="section">
+<section
+  class="section bg-white dark:bg-slate-900 transition-colors duration-300"
+>
   <h2 class="section-title">Meus Projetos</h2>
+
   <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-2">
-    {projects.slice(-4).map((project) => <ProjectCard {...project} />)}
+    {projects.slice(-4).map((project) => (
+      <ProjectCard {...project} />
+    ))}
   </div>
-  <button class="secondary-button flex-center mx-auto mt-10">Ver todos os projetos <MoveRight /></button>
+
+  <button
+    class="secondary-button flex-center mx-auto mt-10 transition-all duration-300"
+  >
+    Ver todos os projetos
+    <MoveRight class="transition-transform duration-300 group-hover:translate-x-1" />
+  </button>
 </section>

@@ -1,35 +1,79 @@
 ---
-import { CodeXml, Download, Menu, Moon } from "@lucide/astro";
+import { CodeXml, Download, Menu, Moon, Sun } from "@lucide/astro";
 ---
 
-<header class="flex-center justify-between p-6 md:px-18 md:py-6">
+<header
+  class="flex-center justify-between p-6 shadow-sm md:px-18 md:py-6 bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100
+  transition-colors duration-300"
+>
   <a
     href="#hero"
     aria-label="Voltar para o início"
-    class="flex items-center gap-2 font-poppins"
+    class="flex items-center gap-2 font-poppins transition-colors duration-300"
   >
     <CodeXml aria-hidden="true" color="#3b82f6" size="24" stroke-width="2.25" />
 
-    <span class="text-2xl font-semibold"> GabrielCouto </span>
+    <span class="text-2xl font-semibold transition-colors duration-300">
+      GabrielCouto
+    </span>
   </a>
 
-  <!-- desktop navbar -->
+  <!-- Desktop navbar -->
   <nav aria-label="Navegação principal" class="hidden lg:block">
     <ul class="flex items-center gap-12">
-      <li><a class="nav-link" href="#hero">Home</a></li>
-      <li><a class="nav-link" href="#about">Sobre</a></li>
-
-      <li class="hidden xl:block">
-        <a class="nav-link" href="#skills">Habilidades</a>
+      <li>
+        <a
+          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
+          href="#hero"
+        >
+          Home
+        </a>
       </li>
 
-      <li><a class="nav-link" href="#projects">Projetos</a></li>
-      <li><a class="nav-link" href="#contact">Contato</a></li>
+      <li>
+        <a
+          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
+          href="#about"
+        >
+          Sobre
+        </a>
+      </li>
+
+      <li class="hidden xl:block">
+        <a
+          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
+          href="#skills"
+        >
+          Habilidades
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
+          href="#projects"
+        >
+          Projetos
+        </a>
+      </li>
+
+      <li>
+        <a
+          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
+          href="#contact"
+        >
+          Contato
+        </a>
+      </li>
     </ul>
   </nav>
 
   <div class="flex-center gap-6">
-    <a href="/curriculo.pdf" download class="hidden sm:flex sm:items-center primary-button ">
+    <a
+      href="/curriculo.pdf"
+      download
+      class="hidden sm:flex sm:items-center primary-button transition-all duration-300"
+    >
       Baixar currículo
 
       <Download aria-hidden="true" size="16" stroke-width="2.5" />
@@ -37,10 +81,23 @@ import { CodeXml, Download, Menu, Moon } from "@lucide/astro";
 
     <button
       type="button"
+      id="theme-button"
       aria-label="Alternar tema"
       class="icon-button hidden lg:flex items-center justify-center"
     >
-      <Moon aria-hidden="true" size="16" color="#64748b" />
+      <Moon
+        id="moon-icon"
+        aria-hidden="true"
+        size="16"
+        class="text-slate-500 dark:text-slate-300 transition-all duration-300 dark:hidden"
+      />
+
+      <Sun
+        id="sun-icon"
+        aria-hidden="true"
+        size="16"
+        class="hidden text-slate-300 transition-all duration-300 dark:block"
+      />
     </button>
 
     <button
@@ -48,9 +105,29 @@ import { CodeXml, Download, Menu, Moon } from "@lucide/astro";
       aria-label="Abrir menu"
       aria-controls="mobile-menu"
       aria-expanded="false"
-      class="icon-button flex items-center justify-center lg:hidden"
+      class="icon-button flex items-center justify-center lg:hidden
+      transition-all duration-300
+      bg-slate-100 hover:bg-slate-200
+      dark:bg-slate-800 dark:hover:bg-slate-700"
     >
-      <Menu aria-hidden="true" />
+      <Menu aria-hidden="true" class="transition-colors duration-300" />
     </button>
   </div>
 </header>
+
+<script>
+  const root = document.documentElement;
+  const themeButton = document.getElementById("theme-button");
+
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "dark") {
+    root.classList.add("dark");
+  }
+
+  themeButton?.addEventListener("click", () => {
+    const isDark = root.classList.toggle("dark");
+
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  });
+</script>
