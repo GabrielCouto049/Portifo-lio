@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import SpeedInsights from "@vercel/speed-insights/astro";
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
@@ -19,6 +20,7 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 	<meta name="og:url" content="https://portifo-lio-ochre.vercel.app/" />
 
     <title>Gabriel's Portifolio</title>
+    <Analytics />
   </head>
   <body>
     <slot />
