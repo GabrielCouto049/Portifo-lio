@@ -25,32 +25,39 @@
 
 .nav-link {
   @apply relative inline-block
-  font-poppins
-  text-sm font-semibold
-  tracking-wide
-  text-slate-600
-  transition-colors duration-300
+    font-poppins
+    text-sm font-semibold
+    tracking-wide
+    text-slate-600
+    transition-colors duration-300
 
-  after:absolute
-  after:-bottom-1
-  after:left-0
-  after:h-0.5
-  after:w-full
-  after:origin-left
-  after:scale-x-0
-  after:rounded-full
-  after:bg-linear-to-r
-  after:from-blue-400
-  after:to-blue-600
-  after:transition-transform
-  after:duration-300
+    after:absolute
+    after:-bottom-1
+    after:left-0
+    after:h-0.5
+    after:w-full
+    after:origin-left
+    after:scale-x-0
+    after:rounded-full
+    after:bg-linear-to-r
+    after:from-blue-400
+    after:to-blue-600
+    after:transition-transform
+    after:duration-300
 
-  hover:text-blue-500
-  hover:after:scale-x-100
+    hover:text-blue-500
+    hover:after:scale-x-100
 
-  dark:text-slate-300
-  dark:hover:text-blue-400;
+    dark:text-slate-300
+    dark:hover:text-blue-400;
 }
+
+.nav-link.active {
+  @apply text-blue-500
+    after:scale-x-100
+    dark:text-blue-400;
+}
+
 
 /* =========================
    Buttons
@@ -137,8 +144,7 @@
 ========================= */
 
 .section {
-  @apply min-h-dvh
-  w-full
+  @apply min-h-dvh w-full
 
   p-8
 

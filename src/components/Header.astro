@@ -2,11 +2,11 @@
 import { CodeXml, Download, Menu, Moon, Sun } from "@lucide/astro";
 
 const navItems = [
-  { label: "Home", href: "#hero" },
-  { label: "Sobre", href: "#about" },
-  { label: "Habilidades", href: "#skills" },
-  { label: "Projetos", href: "#projects" },
-  { label: "Contato", href: "#contact" },
+  { label: "Home", id: "hero", href: "#hero" },
+  { label: "Sobre", id: "about", href: "#about" },
+  { label: "Habilidades", id: "skills", href: "#skills" },
+  { label: "Projetos", id: "projects", href: "#projects" },
+  { label: "Contato", id: "contact", href: "#contact" },
 ];
 ---
 
@@ -44,6 +44,7 @@ const navItems = [
         navItems.map((item) => (
           <li>
             <a
+              id={`${item.id}Link`}
               href={item.href}
               class="nav-link transition-colors duration-300 hover:text-blue-500"
             >
