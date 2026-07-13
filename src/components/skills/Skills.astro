@@ -8,12 +8,7 @@ import {
   softSkills,
 } from "../../data/skills";
 
-import {
-  Server,
-  MonitorSmartphone,
-  Wrench,
-  Users,
-} from "@lucide/astro";
+import { Server, MonitorSmartphone, Wrench, Users } from "@lucide/astro";
 
 import { Image } from "astro:assets";
 ---
@@ -22,10 +17,9 @@ import { Image } from "astro:assets";
   id="skills"
   class="section bg-slate-100 transition-colors duration-700 dark:bg-slate-800"
 >
-  <h2 class="section-title">Habilidades</h2>
+  <h2 class="section-title observed">Habilidades</h2>
 
   <div class="grid gap-10 lg:grid-cols-2">
-
     <SkillsGrid
       title="Front-end"
       icon={MonitorSmartphone}
@@ -48,19 +42,22 @@ import { Image } from "astro:assets";
     </div>
 
     <article class="min-w-0 lg:col-span-2">
-      <div class="flex-center mb-8 gap-2">
-        <Users />
+      <header class="flex-center mb-8 gap-2">
+        <Users aria-hidden="true" />
         <h3 class="font-poppins text-xl font-semibold text-blue-500">
           Soft Skills
         </h3>
-      </div>
+      </header>
 
       <div
-        class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto scroll-smooth md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-4"
+        id="cardsScroll"
+        class="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4"
       >
         {
           softSkills.map((skill) => (
-            <div class="group w-full shrink-0 snap-center rounded-2xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-xl dark:border-slate-700 dark:from-slate-900 dark:to-slate-800">
+            <div
+              class="group observed sf-card w-full shrink-0 snap-center rounded-2xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-xl dark:border-slate-700 dark:from-slate-900 dark:to-slate-800"
+            >
               <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/40">
                 <Image
                   src={skill.iconSrc}
@@ -82,21 +79,7 @@ import { Image } from "astro:assets";
         }
       </div>
 
-      <div class="mt-6 flex justify-center gap-2 md:hidden">
-        {
-          softSkills.map((_, index) => (
-            <span
-              class:list={[
-                "h-2 w-2 rounded-full",
-                index === 0 ? "bg-blue-500" : "bg-slate-300 dark:bg-slate-600",
-              ]}
-            />
-          ))
-        }
-      </div>
+      <div class="mt-6 flex justify-center gap-2 md:hidden"></div>
     </article>
-
   </div>
 </section>
-
-<script src="../../animations/waterfall"></script>

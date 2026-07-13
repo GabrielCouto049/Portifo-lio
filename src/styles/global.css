@@ -1,118 +1,235 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@100..1000&family=Poppins:wght@100..900&display=swap");
+
 @import "tailwindcss";
 
 @theme {
   --font-sans: "DM Sans", sans-serif;
   --font-poppins: "Poppins", sans-serif;
+
+  --animate-reveal: reveal 1000ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* =========================
+   Layout Utilities
+========================= */
 
 .flex-center {
   @apply flex items-center;
 }
 
+/* =========================
+   Navigation
+========================= */
+
 .nav-link {
   @apply relative inline-block
-         font-poppins text-sm font-semibold tracking-wide
-         text-slate-600 dark:text-slate-300
-         transition-colors duration-300
-         hover:text-blue-500 dark:hover:text-blue-400
-         after:absolute
-         after:left-0
-         after:-bottom-1
-         after:h-0.5
-         after:w-full
-         after:origin-left
-         after:scale-x-0
-         after:rounded-full
-         after:bg-linear-to-r
-         after:from-blue-400
-         after:to-blue-600
-         after:transition-transform
-         after:duration-300
-         hover:after:scale-x-100;
+  font-poppins
+  text-sm font-semibold
+  tracking-wide
+  text-slate-600
+  transition-colors duration-300
+
+  after:absolute
+  after:-bottom-1
+  after:left-0
+  after:h-0.5
+  after:w-full
+  after:origin-left
+  after:scale-x-0
+  after:rounded-full
+  after:bg-linear-to-r
+  after:from-blue-400
+  after:to-blue-600
+  after:transition-transform
+  after:duration-300
+
+  hover:text-blue-500
+  hover:after:scale-x-100
+
+  dark:text-slate-300
+  dark:hover:text-blue-400;
 }
 
+/* =========================
+   Buttons
+========================= */
+
 .primary-button {
-  @apply flex items-center justify-center
-         gap-3 h-11 px-4 md:px-6
-         rounded-lg
-         font-poppins text-sm font-semibold tracking-wide
-         text-blue-50
-         bg-linear-to-b from-blue-500 to-blue-600
-         shadow-sm
-         transition-all duration-300
-         hover:brightness-110;
+  @apply flex h-11
+  items-center justify-center
+  gap-3
+
+  rounded-lg
+  bg-linear-to-b
+  from-blue-500
+  to-blue-600
+
+  px-4
+
+  font-poppins
+  text-sm
+  font-semibold
+  tracking-wide
+
+  text-blue-50
+  shadow-sm
+
+  transition-all duration-300
+
+  hover:brightness-110
+
+  md:px-6;
 }
 
 .secondary-button {
-  @apply flex items-center justify-center
-         gap-3 h-11 px-4 md:px-6
-         rounded-lg
-         border-2 border-blue-700 text-blue-700
-         font-poppins text-sm font-semibold tracking-wide
-         transition-all duration-300
-         hover:bg-slate-200
-         dark:border-blue-500
-         dark:text-blue-400
-         dark:hover:bg-slate-700;
+  @apply flex h-11
+  items-center justify-center
+  gap-3
+
+  rounded-lg
+  border-2
+  border-blue-700
+
+  px-4
+
+  font-poppins
+  text-sm
+  font-semibold
+  tracking-wide
+
+  text-blue-700
+
+  transition-all duration-300
+
+  hover:bg-slate-200
+
+  dark:border-blue-500
+  dark:text-blue-400
+  dark:hover:bg-slate-700
+
+  md:px-6;
 }
 
 .icon-button {
   @apply size-11
-         rounded-lg
-         border border-slate-300
-         bg-white
-         text-slate-600
-         transition-all duration-300
-         hover:bg-slate-100
-         dark:border-slate-700
-         dark:bg-slate-800
-         dark:text-slate-300
-         dark:hover:bg-slate-700;
+  rounded-lg
+
+  border
+  border-slate-300
+
+  bg-white
+  text-slate-600
+
+  transition-all duration-300
+
+  hover:bg-slate-100
+
+  dark:border-slate-700
+  dark:bg-slate-800
+  dark:text-slate-300
+  dark:hover:bg-slate-700;
 }
 
+/* =========================
+   Sections
+========================= */
+
 .section {
-  @apply w-full p-8 md:p-16
-         transition-colors duration-300;
+  @apply min-h-dvh
+  w-full
+
+  p-8
+
+  transition-colors duration-300
+
+  md:p-16;
 }
 
 .section-title {
   @apply relative
-         mb-12
-         text-center
-         font-poppins text-2xl font-semibold
-         text-slate-900 dark:text-slate-100
-         transition-colors duration-300;
+  mb-12
+
+  text-center
+
+  font-poppins
+  text-2xl
+  font-semibold
+
+  text-slate-900
+
+  transition-colors duration-300
+
+  dark:text-slate-100;
 }
 
 .section-title::after {
   content: "";
-  @apply mx-auto mt-1 block h-1 w-10 rounded-full bg-blue-500;
+
+  @apply mx-auto
+  mt-1
+
+  block
+
+  h-1
+  w-10
+
+  rounded-full
+
+  bg-blue-500;
 }
+
+/* =========================
+   Cards / Labels
+========================= */
 
 .technology-label {
   @apply rounded-full
-         border border-blue-200 dark:border-blue-700
-         bg-blue-50 dark:bg-blue-950/40
-         px-3 py-1
-         text-xs font-medium
-         text-blue-600 dark:text-blue-300
-         transition-colors duration-300;
-}
 
-.typed-cursor {
-  @apply block h-6 w-1 bg-blue-500 text-blue-500;
+  border
+  border-blue-200
+
+  bg-blue-50
+
+  px-3
+  py-1
+
+  text-xs
+  font-medium
+
+  text-blue-600
+
+  transition-colors duration-300
+
+  dark:border-blue-700
+  dark:bg-blue-950/40
+  dark:text-blue-300;
 }
 
 .skill-card {
-  @apply flex flex-col items-center rounded-xl border border-slate-200 bg-white p-5
+  @apply flex
+  flex-col
+  items-center
+
+  rounded-xl
+
+  border
+  border-slate-200
+
+  bg-white
+
+  p-5
+
   transition-all duration-300
-  hover:-translate-y-1 hover:border-blue-500 hover:shadow-lg
+
+  hover:-translate-y-1
+  hover:border-blue-500
+  hover:shadow-lg
 
   dark:border-slate-700
   dark:bg-slate-900
+
   dark:hover:border-blue-400
   dark:hover:shadow-slate-950/40;
 }
@@ -122,16 +239,88 @@
   transform: translateY(0);
 }
 
+/* =========================
+   Mobile Menu
+========================= */
+
 #mobile-menu.open {
   @apply translate-y-0;
 }
 
 .mobile-menu-item {
-  @apply relative flex gap-2 justify-center items-center
-         w-full py-6
-         font-poppins font-semibold text-sm
-         text-slate-800 dark:text-slate-100
-         border-b border-slate-100 dark:border-slate-800
-         transition-colors duration-300
-         hover:bg-slate-50 dark:hover:bg-slate-800;
+  @apply relative
+
+  flex
+  w-full
+  items-center
+  justify-center
+
+  gap-2
+
+  border-b
+  border-slate-100
+
+  py-6
+
+  font-poppins
+  text-sm
+  font-semibold
+
+  text-slate-800
+
+  transition-colors duration-300
+
+  hover:bg-slate-50
+
+  dark:border-slate-800
+  dark:text-slate-100
+  dark:hover:bg-slate-800;
+}
+
+/* =========================
+   Typing Animation
+========================= */
+
+.typed-cursor {
+  @apply inline-block
+  h-6
+  w-1
+
+  bg-blue-500
+
+  text-blue-500;
+}
+
+/* =========================
+   Scroll Reveal
+========================= */
+
+.observed.show {
+  @apply animate-reveal;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+
+    transform: translate3d(0, 40px, 0) scale(0.96);
+
+    filter: blur(8px);
+  }
+
+  60% {
+    opacity: 1;
+
+    transform: translate3d(0, -8px, 0) scale(1.01);
+
+    filter: blur(0);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translate3d(0, 0, 0) scale(1);
+
+    filter: blur(0);
+  }
 }

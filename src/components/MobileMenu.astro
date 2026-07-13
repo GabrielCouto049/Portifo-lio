@@ -7,36 +7,76 @@ import {
   Mail,
   Moon,
 } from "@lucide/astro";
+
+const menuItems = [
+  {
+    label: "Home",
+    href: "#hero",
+    icon: House,
+  },
+  {
+    label: "Sobre",
+    href: "#about",
+    icon: User,
+  },
+  {
+    label: "Habilidades",
+    href: "#skills",
+    icon: Brain,
+  },
+  {
+    label: "Projetos",
+    href: "#projects",
+    icon: FolderGit2,
+  },
+  {
+    label: "Contatos",
+    href: "#contact",
+    icon: Mail,
+  },
+];
 ---
 
-<aside id="mobile-menu" class="absolute lg:hidden -translate-y-full transition-all duration-400 flex w-full flex-col bg-white dark:bg-slate-900">
-  <a href="" class="mobile-menu-item">
-    <House class="w-5 h-5" />
-    <span>Home</span>
-  </a>
+<aside
+  id="mobile-menu"
+  class="absolute
+  flex w-full flex-col
+  bg-white
+  transition-all duration-400
+  dark:bg-slate-900
+  lg:hidden
+  -translate-y-full"
+>
+  {
+    menuItems.map(({ label, href, icon: Icon }) => (
+      <a
+        href={href}
+        class="mobile-menu-item"
+      >
+        <Icon
+          aria-hidden="true"
+          class="h-5 w-5"
+        />
 
-  <a href="" class="mobile-menu-item">
-    <User class="w-5 h-5" />
-    <span>Sobre</span>
-  </a>
+        <span>
+          {label}
+        </span>
+      </a>
+    ))
+  }
 
-  <a href="" class="mobile-menu-item">
-    <Brain class="w-5 h-5" />
-    <span>Habilidades</span>
-  </a>
+  <button
+    type="button"
+    aria-label="Alternar tema"
+    class="mobile-menu-item theme-button"
+  >
+    <Moon
+      aria-hidden="true"
+      class="h-5 w-5"
+    />
 
-  <a href="" class="mobile-menu-item">
-    <FolderGit2 class="w-5 h-5" />
-    <span>Projetos</span>
-  </a>
-
-  <a href="" class="mobile-menu-item">
-    <Mail class="w-5 h-5" />
-    <span>Contatos</span>
-  </a>
-
-  <button class="mobile-menu-item theme-button">
-    <Moon class="w-5 h-5" />
-    <span>Trocar Tema</span>
+    <span>
+      Trocar Tema
+    </span>
   </button>
 </aside>

@@ -1,24 +1,48 @@
 ---
 import { MoveRight } from "@lucide/astro";
+
 import { projects } from "../../data/projects";
 import ProjectCard from "./ProjectCard.astro";
+
+const featuredProjects = projects.slice(-4);
 ---
 
 <section
-  class="section bg-white dark:bg-slate-900 transition-colors duration-300"
+  id="projects"
+  class="section
+  bg-white
+  transition-colors duration-300
+  dark:bg-slate-900"
 >
-  <h2 class="section-title">Meus Projetos</h2>
+  <h2 class="section-title observed">
+    Meus Projetos
+  </h2>
 
-  <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-2">
-    {projects.slice(-4).map((project) => (
-      <ProjectCard {...project} />
-    ))}
+  <div
+    class="grid gap-10
+    md:grid-cols-2
+    lg:grid-cols-3
+    2xl:grid-cols-2"
+  >
+    {
+      featuredProjects.map((project) => (
+        <ProjectCard {...project} />
+      ))
+    }
   </div>
 
   <button
-    class="secondary-button flex-center mx-auto mt-10 transition-all duration-300"
+    type="button"
+    class="group secondary-button
+    flex-center
+    mx-auto mt-10
+    transition-all duration-300"
   >
     Ver todos os projetos
-    <MoveRight class="transition-transform duration-300 group-hover:translate-x-1" />
+
+    <MoveRight
+      aria-hidden="true"
+      class="transition-transform duration-300 group-hover:translate-x-1"
+    />
   </button>
 </section>

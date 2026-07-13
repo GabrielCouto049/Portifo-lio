@@ -8,10 +8,10 @@
       });
     },
     {
-      threshold: 0.15,
+      threshold: 0.2,
     }
   );
 
-  document.querySelectorAll(".skill-card").forEach((card) => {
-    observer.observe(card);
+  document.querySelectorAll(".observed").forEach((target) => {
+    observer.observe(target);
   });

@@ -1,80 +1,129 @@
 ---
 import { Mail, Phone, MapPin } from "@lucide/astro";
+
+const contactItems = [
+  {
+    label: "Email",
+    value: "seuemail@email.com",
+    href: "mailto:seuemail@email.com",
+    icon: Mail,
+  },
+  {
+    label: "Telefone",
+    value: "+55 (00) 00000-0000",
+    href: "tel:+550000000000",
+    icon: Phone,
+  },
+  {
+    label: "Localização",
+    value: "Brasil",
+    icon: MapPin,
+  },
+  {
+    label: "GitHub",
+    value: "github.com/seuusuario",
+    href: "https://github.com/seuusuario",
+  },
+];
 ---
 
 <section
-  class="grid md:grid-cols-2 gap-10 bg-slate-800 section text-slate-50"
+  id="contact"
+  class="section
+  grid gap-10
+  bg-slate-800
+  text-slate-50
+  md:grid-cols-2"
 >
   <div>
-    <h2 class="font-poppins text-2xl text-slate-50 font-semibold mb-4">
-      Vamos Conversar?
-    </h2>
-    <p class="text-slate-300 max-w-120 text-sm tracking-wide leading-relaxed mb-10">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus totam
-      libero deserunt laboriosam magnam fugiat, deleniti illo assumenda mollitia
-      fuga.
-    </p>
-    <ul class="space-y-6 font-poppins text-sm">
-      <li class="flex items-center gap-4">
-        <div class="rounded-lg bg-slate-700 p-3">
-          <Mail size={18} class="text-blue-400" />
-        </div>
+    <header>
+      <h2
+        class="mb-4
+        font-poppins
+        text-2xl font-semibold
+        text-slate-50"
+      >
+        Vamos Conversar?
+      </h2>
 
-        <div>
-          <p class="text-slate-400">Email</p>
-          <a
-            href="mailto:seuemail@email.com"
-            class="transition hover:text-blue-400"
-          >
-            seuemail@email.com
-          </a>
-        </div>
-      </li>
+      <p
+        class="mb-10
+        max-w-120
+        text-sm
+        leading-relaxed
+        tracking-wide
+        text-slate-300"
+      >
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Temporibus totam
+        libero deserunt laboriosam magnam fugiat, deleniti illo assumenda mollitia
+        fuga.
+      </p>
+    </header>
 
-      <li class="flex items-center gap-4">
-        <div class="rounded-lg bg-slate-700 p-3">
-          <Phone size={18} class="text-blue-400" />
-        </div>
+    <address
+      class="space-y-6
+      font-poppins
+      text-sm
+      not-italic"
+    >
+      {
+        contactItems.map(({ label, value, href, icon: Icon }) => (
+          <div class="flex items-center gap-4">
+            <div class="rounded-lg bg-slate-700 p-3">
+              {
+                Icon && (
+                  <Icon
+                    aria-hidden="true"
+                    size={18}
+                    class="text-blue-400"
+                  />
+                )
+              }
+            </div>
 
-        <div>
-          <p class="text-slate-400">Telefone</p>
-          <a href="tel:+550000000000" class="transition hover:text-blue-400">
-            +55 (00) 00000-0000
-          </a>
-        </div>
-      </li>
+            <div>
+              <p class="text-slate-400">
+                {label}
+              </p>
 
-      <li class="flex items-center gap-4">
-        <div class="rounded-lg bg-slate-700 p-3">
-          <MapPin size={18} class="text-blue-400" />
-        </div>
-
-        <div>
-          <p class="text-slate-400">Localização</p>
-          <span>Brasil</span>
-        </div>
-      </li>
-
-      <li class="flex items-center gap-4">
-        <div class="rounded-lg bg-slate-700 p-3"></div>
-
-        <div>
-          <p class="text-slate-400">GitHub</p>
-          <a
-            href="https://github.com/seuusuario"
-            target="_blank"
-            class="transition hover:text-blue-400"
-          >
-            github.com/seuusuario
-          </a>
-        </div>
-      </li>
-    </ul>
+              {
+                href ? (
+                  <a
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel={
+                      href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    class="transition hover:text-blue-400"
+                  >
+                    {value}
+                  </a>
+                ) : (
+                  <span>
+                    {value}
+                  </span>
+                )
+              }
+            </div>
+          </div>
+        ))
+      }
+    </address>
   </div>
-  <form class="rounded-2xl bg-slate-900/40 p-8 backdrop-blur">
+
+  <form
+    class="rounded-2xl
+    bg-slate-900/40
+    p-8
+    backdrop-blur"
+  >
     <div class="grid gap-6 md:grid-cols-2">
       <label class="flex flex-col gap-2 text-sm">
-        <span class="font-poppins tracking-wide">Nome</span>
+        <span class="font-poppins tracking-wide">
+          Nome
+        </span>
 
         <input
           id="name"
@@ -82,12 +131,22 @@ import { Mail, Phone, MapPin } from "@lucide/astro";
           type="text"
           required
           autocomplete="name"
-          class="rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30"
+          class="rounded-lg
+          border border-slate-600
+          bg-slate-800
+          px-4 py-3
+          outline-none
+          transition
+          focus:border-blue-400
+          focus:ring-2
+          focus:ring-blue-400/30"
         />
       </label>
 
       <label class="flex flex-col gap-2 text-sm">
-        <span class="font-poppins tracking-wide">Email</span>
+        <span class="font-poppins tracking-wide">
+          Email
+        </span>
 
         <input
           id="email"
@@ -95,19 +154,38 @@ import { Mail, Phone, MapPin } from "@lucide/astro";
           type="email"
           required
           autocomplete="email"
-          class="rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30"
+          class="rounded-lg
+          border border-slate-600
+          bg-slate-800
+          px-4 py-3
+          outline-none
+          transition
+          focus:border-blue-400
+          focus:ring-2
+          focus:ring-blue-400/30"
         />
       </label>
 
       <label class="flex flex-col gap-2 text-sm md:col-span-2">
-        <span class="font-poppins tracking-wide">Mensagem</span>
+        <span class="font-poppins tracking-wide">
+          Mensagem
+        </span>
 
         <textarea
           id="message"
           name="message"
           rows="7"
           required
-          class="resize-none rounded-lg border border-slate-600 bg-slate-800 px-4 py-3 outline-none transition focus:border-blue-400 focus:ring-2 focus:ring-blue-400/30"
+          class="resize-none
+          rounded-lg
+          border border-slate-600
+          bg-slate-800
+          px-4 py-3
+          outline-none
+          transition
+          focus:border-blue-400
+          focus:ring-2
+          focus:ring-blue-400/30"
         ></textarea>
       </label>
     </div>

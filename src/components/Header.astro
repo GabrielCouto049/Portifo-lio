@@ -1,70 +1,57 @@
 ---
 import { CodeXml, Download, Menu, Moon, Sun } from "@lucide/astro";
+
+const navItems = [
+  { label: "Home", href: "#hero" },
+  { label: "Sobre", href: "#about" },
+  { label: "Habilidades", href: "#skills" },
+  { label: "Projetos", href: "#projects" },
+  { label: "Contato", href: "#contact" },
+];
 ---
 
 <header
-  class="relative z-2 flex-center justify-between p-6 shadow-sm md:px-18 md:py-6 bg-white text-slate-900 dark:bg-slate-900 dark:text-slate-100
-  transition-colors duration-300"
+  id="header"
+  class="fixed top-0 left-0 z-50 w-full
+  flex-center justify-between
+  p-6 md:px-16 md:py-6
+  backdrop-blur-3xl
+  bg-slate-100 dark:bg-slate-900
+  lg:bg-transparent lg:dark:bg-slate-900/80
+  text-slate-900 dark:text-slate-100
+  transition-all duration-300"
 >
   <a
     href="#hero"
     aria-label="Voltar para o início"
-    class="flex items-center gap-2 font-poppins transition-colors duration-300"
+    class="flex items-center gap-2 font-poppins"
   >
-    <CodeXml aria-hidden="true" color="#3b82f6" size="24" stroke-width="2.25" />
+    <CodeXml
+      aria-hidden="true"
+      color="#3b82f6"
+      size="24"
+      stroke-width="2.25"
+    />
 
-    <span class="text-2xl font-semibold transition-colors duration-300">
+    <span class="text-2xl font-semibold">
       GabrielCouto
     </span>
   </a>
 
-  <!-- Desktop navbar -->
   <nav aria-label="Navegação principal" class="hidden lg:block">
     <ul class="flex items-center gap-12">
-      <li>
-        <a
-          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
-          href="#hero"
-        >
-          Home
-        </a>
-      </li>
-
-      <li>
-        <a
-          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
-          href="#about"
-        >
-          Sobre
-        </a>
-      </li>
-
-      <li class="hidden xl:block">
-        <a
-          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
-          href="#skills"
-        >
-          Habilidades
-        </a>
-      </li>
-
-      <li>
-        <a
-          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
-          href="#projects"
-        >
-          Projetos
-        </a>
-      </li>
-
-      <li>
-        <a
-          class="nav-link transition-colors duration-300 hover:text-blue-500 dark:hover:text-blue-400"
-          href="#contact"
-        >
-          Contato
-        </a>
-      </li>
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="nav-link transition-colors duration-300 hover:text-blue-500"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 
@@ -72,30 +59,36 @@ import { CodeXml, Download, Menu, Moon, Sun } from "@lucide/astro";
     <a
       href="/curriculo.pdf"
       download
-      class="hidden sm:flex sm:items-center primary-button transition-all duration-300"
+      class="primary-button hidden items-center gap-2 sm:flex"
     >
-      Baixar currículo
+      <span>
+        Baixar currículo
+      </span>
 
-      <Download aria-hidden="true" size="16" stroke-width="2.5" />
+      <Download
+        aria-hidden="true"
+        size="16"
+        stroke-width="2.5"
+      />
     </a>
 
     <button
       type="button"
       aria-label="Alternar tema"
-      class="icon-button theme-button hidden lg:flex items-center justify-center"
+      class="theme-button icon-button hidden items-center justify-center lg:flex"
     >
       <Moon
         id="moon-icon"
         aria-hidden="true"
         size="16"
-        class="text-slate-500 dark:text-slate-300 transition-all duration-300 dark:hidden"
+        class="text-slate-500 dark:hidden"
       />
 
       <Sun
         id="sun-icon"
         aria-hidden="true"
         size="16"
-        class="hidden text-slate-300 transition-all duration-300 dark:block"
+        class="hidden text-slate-300 dark:block"
       />
     </button>
 
@@ -103,14 +96,9 @@ import { CodeXml, Download, Menu, Moon, Sun } from "@lucide/astro";
       type="button"
       id="menu-button"
       aria-label="Abrir menu"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-      class="icon-button flex items-center justify-center lg:hidden
-      transition-all duration-300
-      bg-slate-100 hover:bg-slate-200
-      dark:bg-slate-800 dark:hover:bg-slate-700"
+      class="icon-button flex items-center justify-center bg-slate-100 dark:bg-slate-800 lg:hidden"
     >
-      <Menu aria-hidden="true" class="transition-colors duration-300" />
+      <Menu aria-hidden="true" />
     </button>
   </div>
 </header>
