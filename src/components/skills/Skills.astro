@@ -26,12 +26,6 @@ import { Image } from "astro:assets";
       skills={frontEndSkills}
     />
 
-    <SkillsGrid
-      title="Back-end"
-      icon={Server}
-      skills={backEndSkills}
-    />
-
     <div class="lg:col-span-2">
       <SkillsGrid
         title="Ferramentas"
@@ -51,12 +45,13 @@ import { Image } from "astro:assets";
 
       <div
         id="cardsScroll"
-        class="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4"
+        class="flex snap-x snap-mandatory gap-5 scrollbar-none overflow-x-auto scroll-smooth pb-2 md:grid md:grid-cols-2 md:overflow-visible lg:grid-cols-4"
       >
         {
-          softSkills.map((skill) => (
+          softSkills.map((skill, index) => (
             <div
-              class="group observed sf-card w-full shrink-0 snap-center rounded-2xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-xl dark:border-slate-700 dark:from-slate-900 dark:to-slate-800"
+              id={`${index}`}
+              class="group softSkillCard w-full shrink-0 snap-center rounded-2xl border border-slate-200 bg-linear-to-br from-white to-slate-50 p-6 transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-xl dark:border-slate-700 dark:from-slate-900 dark:to-slate-800"
             >
               <div class="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-blue-50 dark:bg-blue-950/40">
                 <Image
@@ -79,7 +74,18 @@ import { Image } from "astro:assets";
         }
       </div>
 
-      <div class="mt-6 flex justify-center gap-2 md:hidden"></div>
+      <div class="mt-6 flex justify-center gap-2 md:hidden">
+        {
+          softSkills.map((skill, index) => (
+            <div
+              id={`marker-${index}`}
+              class="h-2 w-2 rounded-full transition-all duration-300 bg-white"
+            />
+          ))
+        }
+      </div>
     </article>
   </div>
 </section>
+
+<script src="../../animations/carousselMarker.js"></script>
