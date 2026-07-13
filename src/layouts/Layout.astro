@@ -11,24 +11,61 @@ import Analytics from "@vercel/analytics/astro";
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Description -->
     <meta
       name="description"
       content="Portfólio de Gabriel Couto, desenvolvedor front-end em formação. Venha saber mais sobre meus projetos, habilidades e experiências."
     />
     <meta name="author" content="Gabriel Couto" />
     <meta name="theme-color" content="#3b82f6" />
-    <meta name="og:title" content="Gabriel Couto | Desenvolvedor Front-End" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="Portuguese" />
+    <link rel="canonical" href="https://portifo-lio-ochre.vercel.app/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://portifo-lio-ochre.vercel.app/" />
+    <meta property="og:title" content="Gabriel Couto | Desenvolvedor Front-End" />
     <meta
-      name="og:description"
+      property="og:description"
       content="Portfólio de Gabriel Couto, desenvolvedor front-end em formação. Venha saber mais sobre meus projetos, habilidades e experiências."
     />
     <meta
-      name="og:image"
-      content="https://portifo-lio-ochre.vercel.app/public/og-image.png"
+      property="og:image"
+      content="https://portifo-lio-ochre.vercel.app/og-image.png"
     />
-    <meta name="og:url" content="https://portifo-lio-ochre.vercel.app/" />
 
-    <title>Gabriel's Portifolio</title>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://portifo-lio-ochre.vercel.app/" />
+    <meta property="twitter:title" content="Gabriel Couto | Desenvolvedor Front-End" />
+    <meta
+      property="twitter:description"
+      content="Portfólio de Gabriel Couto, desenvolvedor front-end em formação. Venha saber mais sobre meus projetos, habilidades e experiências."
+    />
+    <meta
+      property="twitter:image"
+      content="https://portifo-lio-ochre.vercel.app/og-image.png"
+    />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Gabriel Couto",
+        "url": "https://portifo-lio-ochre.vercel.app",
+        "image": "https://portifo-lio-ochre.vercel.app/og-image.png",
+        "jobTitle": "Desenvolvedor Front-End",
+        "sameAs": [
+          "https://github.com/GabrielCouto049",
+          "https://linkedin.com/in/gabriel-couto"
+        ]
+      }
+    </script>
+
+    <title>Gabriel Couto | Desenvolvedor Front-End</title>
     <Analytics />
   </head>
   <body>
