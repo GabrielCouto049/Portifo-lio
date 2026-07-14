@@ -1,5 +1,5 @@
 ---
-import { SquareArrowOutUpRight } from "@lucide/astro";
+import { SquareArrowOutUpRight, FileText } from "@lucide/astro";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
@@ -12,14 +12,8 @@ interface Props {
   githubUrl: string;
 }
 
-const {
-  title,
-  description,
-  imageSrc,
-  technologies,
-  projectUrl,
-  githubUrl,
-} = Astro.props;
+const { title, description, imageSrc, technologies, projectUrl, githubUrl } =
+  Astro.props;
 ---
 
 <article
@@ -48,10 +42,8 @@ const {
     2xl:w-96 2xl:shrink-0"
   />
 
-  <div
-    class="mt-4 flex flex-1 flex-col justify-between
-    2xl:mt-0"
-  >
+  <div class="mt-4 flex flex-1 flex-col justify-between
+    2xl:mt-0">
     <div>
       <h3
         class="font-poppins text-lg font-semibold
@@ -74,59 +66,39 @@ const {
       <div class="mt-4 flex flex-wrap gap-2">
         {
           technologies.map((technology) => (
-            <span class="technology-label">
-              {technology}
-            </span>
+            <span class="technology-label">{technology}</span>
           ))
         }
       </div>
     </div>
 
     <footer
-      class="mt-6 flex items-center justify-between
-      border-t border-slate-200
-      pt-4
-      transition-colors duration-300
-      dark:border-slate-700"
+      class="mt-6
+  flex items-center flex-col gap-3
+  border-t border-slate-200
+  pt-4
+  transition-colors duration-300
+  dark:border-slate-700
+  md:flex-row"
     >
       <a
         href={projectUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-1
-        text-sm font-medium
-        text-slate-700
-        transition-colors duration-300
-        hover:text-blue-500
-        dark:text-slate-300
-        dark:hover:text-blue-400"
+        class="button primary-button w-full"
       >
-        Ver projeto
-
-        <SquareArrowOutUpRight
-          aria-hidden="true"
-          size={15}
-        />
+        Ver Projeto
+        <SquareArrowOutUpRight size={16} />
       </a>
 
       <a
         href={githubUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="flex items-center gap-1
-        text-sm font-medium
-        text-slate-700
-        transition-colors duration-300
-        hover:text-blue-500
-        dark:text-slate-300
-        dark:hover:text-blue-400"
+        class="button secondary-button w-full"
       >
-        Código
-
-        <SquareArrowOutUpRight
-          aria-hidden="true"
-          size={15}
-        />
+        Saber mais
+        <FileText size={16} />
       </a>
     </footer>
   </div>

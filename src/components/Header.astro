@@ -60,7 +60,7 @@ const navItems = [
     <a
       href="/curriculo.pdf"
       download
-      class="primary-button hidden items-center gap-2 sm:flex"
+      class="button primary-button hidden items-center gap-2 sm:flex"
     >
       <span>
         Baixar currículo
@@ -76,19 +76,19 @@ const navItems = [
     <button
       type="button"
       aria-label="Alternar tema"
-      class="theme-button icon-button hidden items-center justify-center lg:flex"
+      class="theme-button button tertiary-button hidden items-center justify-center lg:flex"
     >
       <Moon
         id="moon-icon"
         aria-hidden="true"
-        size="16"
+        size="18"
         class="text-slate-500 dark:hidden"
       />
 
       <Sun
         id="sun-icon"
         aria-hidden="true"
-        size="16"
+        size="18"
         class="hidden text-slate-300 dark:block"
       />
     </button>
@@ -97,9 +97,9 @@ const navItems = [
       type="button"
       id="menu-button"
       aria-label="Abrir menu"
-      class="icon-button flex items-center justify-center bg-slate-100 dark:bg-slate-800 lg:hidden"
+      class="button tertiary-button flex items-center justify-center bg-slate-100 dark:bg-slate-800 lg:hidden!"
     >
-      <Menu aria-hidden="true" />
+      <Menu aria-hidden="true" size={18}/>
     </button>
   </div>
 </header>
