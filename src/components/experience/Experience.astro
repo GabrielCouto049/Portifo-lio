@@ -1,0 +1,59 @@
+---
+import { GraduationCap, BriefcaseBusiness } from "@lucide/astro";
+
+import { graduations, jobExperiences } from "../../data/experience";
+
+import ExperienceItem from "./ExperienceItem.astro";
+const experienceSections = [
+  {
+    title: "Educação",
+    icon: GraduationCap,
+    items: graduations,
+  },
+  {
+    title: "Experiências Profissionais",
+    icon: BriefcaseBusiness,
+    items: jobExperiences,
+  },
+];
+---
+
+<!-- EXPERIÊNCIA -->
+<section id="experience" class="section pt-0! dark:bg-slate-900">
+  <div class="w-full h-px bg-slate-300 dark:bg-slate-700 mb-16 lg:mb-32"/>
+  <h2 class="section-title observed">Experiência</h2>
+
+  <div class="grid w-full gap-6 lg:grid-cols-2">
+    {
+      experienceSections.map(({ title, icon: Icon, items }) => (
+        <article
+          class="w-full observed rounded-2xl border border-slate-200
+            bg-white p-5 shadow-sm transition-all duration-300
+            sm:p-8 dark:border-slate-700 dark:bg-slate-800"
+        >
+          <header
+            class="mb-8 flex items-center gap-3
+              font-poppins text-lg font-semibold
+              text-blue-500 sm:text-xl"
+          >
+            <Icon aria-hidden="true" size="27" />
+
+            <h3>{title}</h3>
+          </header>
+
+          <ul class="relative flex flex-col gap-8 pl-8 sm:pl-10">
+            <span
+              aria-hidden="true"
+              class="absolute left-2 top-2 bottom-2 w-0.5
+                bg-slate-200 dark:bg-slate-600"
+            />
+
+            {items.map((item) => (
+              <ExperienceItem {...item} />
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </div>
+</section>

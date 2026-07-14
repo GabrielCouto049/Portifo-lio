@@ -144,13 +144,15 @@
 ========================= */
 
 .section {
-  @apply min-h-dvh w-full
+  @apply w-full
 
-  p-8
+  px-8
+  py-16
 
   transition-colors duration-300
 
-  md:p-16;
+  md:px-16
+  md:py-32;
 }
 
 .section-title {
