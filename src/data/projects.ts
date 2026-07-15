@@ -93,4 +93,100 @@ export const projects: Project[] = [
     projectUrl: "https://task-manager.vercel.app",
     githubUrl: "https://github.com/seuusuario/task-manager",
   },
+
+  {
+    title: "Task Manager",
+    description:
+      "Aplicação para gerenciamento de tarefas com organização por prioridades e calendário.",
+    imageSrc: taskManager,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    projectUrl: "https://task-manager.vercel.app",
+    githubUrl: "https://github.com/seuusuario/task-manager",
+  },
+
+  {
+    title: "Task Manager",
+    description:
+      "Aplicação para gerenciamento de tarefas com organização por prioridades e calendário.",
+    imageSrc: taskManager,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    projectUrl: "https://task-manager.vercel.app",
+    githubUrl: "https://github.com/seuusuario/task-manager",
+  },
+
+  {
+    title: "Task Manager",
+    description:
+      "Aplicação para gerenciamento de tarefas com organização por prioridades e calendário.",
+    imageSrc: taskManager,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    projectUrl: "https://task-manager.vercel.app",
+    githubUrl: "https://github.com/seuusuario/task-manager",
+  },
+
+  {
+    title: "Task Manager",
+    description:
+      "Aplicação para gerenciamento de tarefas com organização por prioridades e calendário.",
+    imageSrc: taskManager,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    projectUrl: "https://task-manager.vercel.app",
+    githubUrl: "https://github.com/seuusuario/task-manager",
+  },
+
+  {
+    title: "Task Manager",
+    description:
+      "Aplicação para gerenciamento de tarefas com organização por prioridades e calendário.",
+    imageSrc: taskManager,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    projectUrl: "https://task-manager.vercel.app",
+    githubUrl: "https://github.com/seuusuario/task-manager",
+  },
+
+  {
+    title: "Task Manager",
+    description:
+      "Aplicação para gerenciamento de tarefas com organização por prioridades e calendário.",
+    imageSrc: taskManager,
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+    ],
+    projectUrl: "https://task-manager.vercel.app",
+    githubUrl: "https://github.com/seuusuario/task-manager",
+  },
 ];

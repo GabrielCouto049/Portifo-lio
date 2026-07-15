@@ -1,5 +1,5 @@
 ---
-import { SquareArrowOutUpRight, FileText } from "@lucide/astro";
+import { SquareArrowOutUpRight, CodeXml } from "@lucide/astro";
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
@@ -24,7 +24,6 @@ const { title, description, imageSrc, technologies, projectUrl, githubUrl } =
   bg-slate-50
   p-5 shadow-sm
   transition-all duration-300
-  hover:-translate-y-1 hover:shadow-lg
   dark:border-slate-700
   dark:bg-slate-800
   2xl:flex-row 2xl:items-stretch 2xl:gap-6"
@@ -97,8 +96,8 @@ const { title, description, imageSrc, technologies, projectUrl, githubUrl } =
         rel="noopener noreferrer"
         class="button secondary-button w-full"
       >
-        Saber mais
-        <FileText size={16} />
+        Código
+        <CodeXml size={16} />
       </a>
     </footer>
   </div>
